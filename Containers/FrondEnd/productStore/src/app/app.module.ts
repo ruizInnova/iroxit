@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Modules
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
+import { ProductStoreModule } from './product-store/product-store.module';
+// Components
 import { ErrorPageComponent } from './shared/pages/error-page/error-page.component';
 
 @NgModule({
@@ -12,7 +16,10 @@ import { ErrorPageComponent } from './shared/pages/error-page/error-page.compone
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    AuthModule,
+    ProductStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
