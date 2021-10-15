@@ -11,6 +11,7 @@ import { SalesComponent } from './pages/sales/sales.component';
 const routes: Routes = [
   {
     path: '',
+    component: SalesComponent,
     children: [
       {
         path: 'cart',
@@ -25,16 +26,12 @@ const routes: Routes = [
         component: ListComponent
       },
       {
-        path: 'products/:id',
+        path: 'products',
         component: ProductComponent
       },
       {
         path: 'edit-product/:id',
         component: ProductComponent
-      },
-      {
-        path: 'sales',
-        component: SalesComponent
       },
       {
         path: '**',
