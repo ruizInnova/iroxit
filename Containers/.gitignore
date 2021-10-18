@@ -1,0 +1,9 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/Databases/sqlServer2019/data
+/Databases/sqlServer2019/log
+
+# System Files
+.DS_Store
+Thumbs.db
