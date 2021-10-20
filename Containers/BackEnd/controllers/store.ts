@@ -43,10 +43,11 @@ export const postStore = async (req: Request, res: Response) => {
     const { body } = req;
     //return console.log(body);
     try{
-        
+        /*
         const store =   Store.build(body);
         await store.save();
-        
+        */
+        const store =   await Store.bulkCreate(body, {returning: false});        
         res.json({
             ok: true,
             msg: 'Se creo una nueva venta',

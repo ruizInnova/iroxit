@@ -24,6 +24,7 @@ const Store = db.define('Ventas', {
     timestamps: false,
     createdAt: false,
     updatedAt: false,
+    hasTrigger: true
 });
 
 export default Store;
