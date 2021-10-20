@@ -7,3 +7,16 @@
 {
     flex: 1 1 auto;
 }
+
+.flexbox-badge {
+    align-items: center;
+    display: flex;
+    height: 20px;
+    justify-content: center;
+    width: 20px;
+    background: #bbb;
+    color: #333;
+    border-radius: 50%;
+    margin-top: -20px;
+    margin-left: 22px;
+}

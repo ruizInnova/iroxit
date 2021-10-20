@@ -1,1 +1,39 @@
-<p>list works!</p>
+<h1> Lista de Productos</h1>
+<mat-divider></mat-divider>
+<br>
+
+<div class="contenedor-grid">
+    <div class="tarjeta" *ngFor="let product of products">
+        <mat-card class="example-card" >
+    
+            <mat-card-header>
+                <div>
+                    <mat-card-title>{{ product.Titulo}}</mat-card-title>
+                    <div>
+                        <mat-card-subtitle>Precio {{product.PrecioUnitario | currency:'CAD':'symbol-narrow'}}</mat-card-subtitle>
+                        <span class="separar"></span>
+                        <mat-card-subtitle>Existen {{product.Existencias}}</mat-card-subtitle>
+                    </div>
+                </div>
+            </mat-card-header>
+            
+            <mat-card-content>
+                <h3>
+                {{product.Descripcion}}
+                </h3>
+            </mat-card-content>
+    
+            <mat-card-actions align="end">
+                <button mat-button (click)=addtoCart(product)>Comprar</button>
+                <button mat-button>Ver</button>
+            </mat-card-actions>
+    
+        </mat-card>
+    </div>
+</div>
+
+
+
+
+
+

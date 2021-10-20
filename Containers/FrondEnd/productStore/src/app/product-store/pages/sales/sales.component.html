@@ -1,28 +1,3 @@
-<!--
-<p>sales works!</p>
-<hr>
-
-<mat-sidenav-container
-    class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-    <p><button mat-button (click)="close('toggle button')">Toggle</button></p>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.open()">Open</button></p>
-    <p>Closed due to: {{reason}}</p>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
-<mat-sidenav-container>
-
-</mat-sidenav-container>
-
-
-
-!-->
-
 <mat-sidenav-container fullscreen>
 
     <mat-sidenav #sidenav mode="push">
@@ -39,7 +14,7 @@
             <a mat-list-item (click)="sidenav.toggle()" routerLink="./dashboard"><mat-icon mat-list-icon>area_chart</mat-icon> <span> Dashboard </span></a>
             <a mat-list-item (click)="sidenav.toggle()" routerLink="./list"><mat-icon mat-list-icon>move_to_inbox</mat-icon> <span> Productos </span></a>
             <a mat-list-item (click)="sidenav.toggle()" routerLink="./cart"><mat-icon mat-list-icon>add_shopping_cart</mat-icon> <span> Ventas </span></a>
-            <a mat-list-item (click)="sidenav.toggle()" routerLink="./products"><mat-icon mat-list-icon>add</mat-icon> <span> Agregar Productos </span></a>
+           <!-- <a mat-list-item (click)="sidenav.toggle()" routerLink="./products"><mat-icon mat-list-icon>add</mat-icon> <span> Agregar Productos </span></a> -->
          </mat-nav-list>
         
     </mat-sidenav>
@@ -52,6 +27,7 @@
         <span class="separar"></span>
         <button mat-icon-button routerLink="./cart">
             <mat-icon>add_shopping_cart</mat-icon>
+            <div class="flexbox-badge">{{totalItem}}</div>
         </button>
 
     </mat-toolbar>

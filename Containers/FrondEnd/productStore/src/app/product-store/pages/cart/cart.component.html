@@ -1,1 +1,91 @@
-<p>cart works!</p>
+<ng-container *ngIf="products.length !=0">
+    <mat-card>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nombre del Producto</th>
+                    <th>Existencias</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="centro" *ngFor="let element of products">
+                    <td>{{element.id}}</td>
+                    <td>{{element.Titulo}}</td>
+                    <td>{{element.Existencias}}</td>
+                    <td>${{element.PrecioUnitario}}</td>
+                    <td>{{element.CantidadVendida}}</td>
+                    <td>${{element.Total}}</td>
+                    <td>
+                    <button mat-icon-button (click)=deleteElement(element)>
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="right">
+                        <button mat-icon-button (click)=deleteAllElementCart()>
+                            <mat-icon>delete</mat-icon>
+                            Cancelar Todo
+                        </button>
+                    </td>
+                    <td colspan="2" class="centro">
+                        <button mat-icon-button routerLink="./list">
+                            <mat-icon>delete</mat-icon>
+                            Seguir Comprando
+                        </button>
+                    </td>
+                    <td colspan="2" class="centro">
+                        <button mat-icon-button (click)=insertStore()>
+                            <mat-icon>delete</mat-icon>
+                            Realizar Compra
+                        </button>
+                    </td>
+                    <td class="centro">Total a Pagar <br/> ${{grandTotal}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+</ng-container>
+  
+<ng-container *ngIf="products.length ==0 && compra !=true ">
+    <mat-card class="contenedor-cart">
+    
+            <mat-card-title>mi carrito</mat-card-title>
+            
+    </mat-card>
+    <div class="center">
+            <span class="material-icons avatar">
+                production_quantity_limits
+                </span>
+            <h1>
+                ¡Tu carrito esta vacío!
+            </h1>
+            <h3>agregarle un producto ahora</h3>
+            <button mat-button routerLink="./list">
+                <mat-icon>add_shopping_cart</mat-icon>
+                Comprar ahora
+            </button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="compra">
+    <div class="center" >
+        <span class="material-icons avatar">
+                thumb_up
+        </span>
+        <h1>
+            ¡Gracias por su Compra!
+        </h1>
+        <button mat-button routerLink="./list">
+            <mat-icon>add_shopping_cart</mat-icon>
+            Seguir Comprando
+        </button>
+</div>
+</ng-container>
+  
