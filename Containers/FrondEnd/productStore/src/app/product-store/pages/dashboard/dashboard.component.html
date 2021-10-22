@@ -1,1 +1,142 @@
-<p>dashboard works!</p>
+<div class="conten">
+    <mat-card class="card grafica">
+        
+        <mat-card-header>
+            <h1>Gráfica de las ventas de {{Indicador}}</h1>
+        </mat-card-header>
+        <mat-card-content class="seg-grid">
+            <div>
+                <mat-selection-list #shoes [multiple]="false">
+                    <mat-list-item role="listitem">Productos</mat-list-item>
+                    <mat-list-option *ngFor="let shoe of typesOfShoes" (click)="selectIndicador(shoe)">
+                      {{shoe}}
+                    </mat-list-option>
+                  </mat-selection-list>
+            </div>
+            <div class="barras">
+                <app-grafic [horizontal]="false"
+                            [barChartData]="productData"
+                            [barChartLabels]="typesOfShoes"
+                >
+                </app-grafic>
+            </div>
+            
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button >
+                <mat-icon mat-list-icon>receipt</mat-icon>
+                Exportar</button>
+            <button mat-button (click)="selectReset()">Los más Vendidos</button>
+        </mat-card-actions>
+
+    </mat-card>
+
+    <mat-card class="card lista" >
+        <mat-card-header>
+            <h2>Alertas de Productos por Terminar</h2>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                El producto <strong style="color: red;">Ariel</strong> Está por terminar ya que solo se tiene <strong style="color: red;">90</strong> por lo cual es necesario comunicarce con el proveedor.
+            </p>
+            <p>
+                El producto <strong style="color: red;">Clorox</strong> Está por terminar ya que solo se tiene <strong style="color: red;">20</strong> por lo cual es necesario comunicarce con el proveedor.
+            </p>
+        </mat-card-content>
+        
+    </mat-card>
+
+    <mat-card class="card tabla">
+        <mat-card-header>
+            <h2>Tabla de Ventas de {{Indicador}} </h2>
+        </mat-card-header>
+        <mat-card-content>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Producto
+                        </th>
+                        <th>
+                            Precio
+                        </th>
+                        <th>
+                            Existencias
+                        </th>
+                        <th>
+                            Cantidad Vendida
+                        </th>
+                        <th>
+                            Total Vendido
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Javi</td>
+                        <td>$21.50</td>
+                        <td>425</td>
+                        <td>1485</td>
+                        <td>$31927.50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-card-content>
+
+    </mat-card>
+
+    <mat-card class="card total">
+        <h1>
+            Total Vendido 
+            <br>
+            $31927.50
+        </h1>
+    </mat-card>
+
+    <mat-card class="card detalle">
+        <mat-card-header>
+            <h2>Detalles de las Ventas</h2>
+        </mat-card-header>
+        <mat-card-content>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Producto
+                        </th>
+                        <th>
+                            Precio
+                        </th>
+                        <th>
+                            Cantidad Vendida
+                        </th>
+                        <th>
+                            Existencias
+                        </th>
+                        
+                        <th>
+                            Total Vendido
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pinol 1L.</td>
+                        <td>$21.50</td>
+                        <td>425</td>
+                        <td>1485</td>
+                        <td>$31927.50</td>
+                        <td>2021/10/20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-card-content>
+
+    </mat-card>
+    
+    
+
+</div>

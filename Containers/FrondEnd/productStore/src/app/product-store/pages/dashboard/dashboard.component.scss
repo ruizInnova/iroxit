@@ -1,0 +1,56 @@
+.conten {
+    display: grid;
+    grid-gap: 0.7rem;
+    width: 100%;
+    grid-template-rows: repeat(8, auto);
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+
+}
+
+.card {
+    background: #424242;
+    color: #fff;
+    border-radius: 0.3rem;
+    margin: 1rem;
+}
+
+.grafica {
+    //max-width: 65%;
+    grid-column: 2 / span 2;
+}
+
+.seg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.barras
+{
+    grid-column: 2 / span 2;
+}
+
+.total {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lista {
+    grid-column: span 1;
+}
+
+.tabla{
+    grid-column: span 3;
+}
+
+.detalle {
+    grid-column: span 4;
+
+}
+
+table{
+    width: 100%;
+}
+tbody {
+    text-align: center;
+}
