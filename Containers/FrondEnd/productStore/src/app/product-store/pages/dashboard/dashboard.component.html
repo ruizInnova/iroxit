@@ -1,6 +1,5 @@
 <div class="conten">
     <mat-card class="card grafica">
-        
         <mat-card-header>
             <h1>Gráfica de las ventas de {{Indicador}}</h1>
         </mat-card-header>
@@ -8,7 +7,7 @@
             <div>
                 <mat-selection-list #shoes [multiple]="false">
                     <mat-list-item role="listitem">Productos</mat-list-item>
-                    <mat-list-option *ngFor="let shoe of typesOfShoes" (click)="selectIndicador(shoe)">
+                    <mat-list-option *ngFor="let shoe of types" (click)="selectIndicador(shoe)">
                       {{shoe}}
                     </mat-list-option>
                   </mat-selection-list>
@@ -35,12 +34,9 @@
         <mat-card-header>
             <h2>Alertas de Productos por Terminar</h2>
         </mat-card-header>
-        <mat-card-content>
-            <p>
-                El producto <strong style="color: red;">Ariel</strong> Está por terminar ya que solo se tiene <strong style="color: red;">90</strong> por lo cual es necesario comunicarce con el proveedor.
-            </p>
-            <p>
-                El producto <strong style="color: red;">Clorox</strong> Está por terminar ya que solo se tiene <strong style="color: red;">20</strong> por lo cual es necesario comunicarce con el proveedor.
+        <mat-card-content *ngIf="productosXTerminar.length != 0">
+            <p *ngFor="let p of productosXTerminar">
+                El producto <strong style="color: red;">{{p.Titulo}}</strong> Está por terminar ya que solo se tiene <strong style="color: red;">{{p.Existencias}}</strong> por lo cual es necesario comunicarce con el proveedor.
             </p>
         </mat-card-content>
         
@@ -71,13 +67,23 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Javi</td>
-                        <td>$21.50</td>
-                        <td>425</td>
-                        <td>1485</td>
-                        <td>$31927.50</td>
+                <tbody *ngIf="ventasxProducto.length != 0">
+                    <tr *ngFor="let product of ventasxProducto">
+                        <td style="text-align: left;">{{product.Titulo}}</td>
+                        <td>${{product.PrecioUnitario}}</td>
+                        <td>{{product.Existencias}}</td>
+                        <td>{{product.CantidadVendida}}</td>
+                        <td>${{product.Total_Vendido}}</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="ventasxProducto.length == 0">
+
+                    <tr *ngFor="let venta of ventas">
+                        <td style="text-align: left;">{{venta.Titulo}}</td>
+                        <td>${{venta.PrecioUnitario}}</td>
+                        <td>{{venta.Existencias}}</td>
+                        <td>{{venta.CantidadVendida}}</td>
+                        <td>${{venta.Total_Vendido}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -89,7 +95,7 @@
         <h1>
             Total Vendido 
             <br>
-            $31927.50
+            ${{grandTotalPrice | number}}
         </h1>
     </mat-card>
 
@@ -111,10 +117,6 @@
                             Cantidad Vendida
                         </th>
                         <th>
-                            Existencias
-                        </th>
-                        
-                        <th>
                             Total Vendido
                         </th>
                         <th>
@@ -123,13 +125,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Pinol 1L.</td>
-                        <td>$21.50</td>
-                        <td>425</td>
-                        <td>1485</td>
-                        <td>$31927.50</td>
-                        <td>2021/10/20</td>
+                    <tr *ngFor="let det of detalleVenta">
+                        <td style="text-align: left;">{{det.Titulo}}</td>
+                        <td>${{det.PrecioUnitario}}</td>
+                        <td>{{det.CantidadVendida}}</td>
+                        <td>${{det.Total_Vendido}}</td>
+                        <td>{{det.Fecha  | date:"medium"}}</td>
                     </tr>
                 </tbody>
             </table>

@@ -5,6 +5,7 @@ import { SERVER_PORT } from '../global/enviroment';
 
 import Productos from '../routes/product';
 import Ventas from '../routes/store';
+import Dashboard from '../routes/dashboard';
 import db from '../database/connection';
 
 class Server {
@@ -13,7 +14,8 @@ class Server {
     private port: number;
     private apiPath = {
         productos: '/api/productos',
-        ventas:    '/api/ventas'
+        ventas:    '/api/ventas',
+        dashboard: '/api/dashboard'
     };
     
 
@@ -30,6 +32,7 @@ class Server {
     routes() {
         this.app.use(this.apiPath.productos, Productos);
         this.app.use(this.apiPath.ventas, Ventas);
+        this.app.use(this.apiPath.dashboard, Dashboard);
     }
 
     middlewares() {
