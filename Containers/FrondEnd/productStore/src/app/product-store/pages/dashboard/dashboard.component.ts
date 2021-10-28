@@ -3,6 +3,7 @@ import { ChartDataSets } from 'chart.js';
 
 import { Stores } from '../../interfaces/stores.interface';
 import { DashboardService } from '../../services/dashboard/dashboard.service';
+import { ExcelService } from '../../services/excel/excel.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,10 +29,17 @@ export class DashboardComponent implements OnInit {
   
   
 
-  constructor(private dashboardService: DashboardService) { }
+  constructor(private dashboardService: DashboardService, private excelService: ExcelService) { }
 
   ngOnInit(): void {
     this.selectReset();
+  }
+
+  exportarExcel() {
+    this.ventas.forEach((a:any, i:any)=> {
+      Object.assign(a,{ArticuloMasVendido:i+1});
+    }); 
+    this.excelService.exportToExcel(this.ventas, this.detalleVenta, this.productosXTerminar, 'Global');
   }
 
   
